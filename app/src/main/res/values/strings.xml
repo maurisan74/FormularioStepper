@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Cuestionario Montero</string>
+    <string name="Enviar">Enviar Formulario</string>
+
+    <string-array name="steps_titles">
+        <item>Nombre y Apellido</item>
+        <item>Correo Electrónico</item>
+        <item>Profesión/Ocupación</item>
+        <item>¿En qué temas te gustaría capacitarte?</item>
+    </string-array>
+    <string name="error_name_min_characters">Al menos %1$d caracteres</string>
+    <string name="form_hint_nom">Nombre (Obligatorio)</string>
+    <string name="form_hint_ape">Apellido (Obligatorio)</string>
+    <string name="form_hint_correo">Correo electrónico (Obligatorio)</string>
+    <string name="form_sending_data_message">Se enviaran tus datos…</string>
+    <string name="rb_est">Estudiante</string>
+    <string name="rb_pro">Profesional</string>
+    <string name="rb_otro">Otro</string>
+    <string name="form_empty_field">(Empty)</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="ok_button">Continuar</string>
+    <string name="sub_title_conf">Formulario Completo</string>
+<!--Activity Main-->
+    <string name="titulo">Contacto Académico</string>
+    <string name="descripcion">Un placer saludarte,\nsoy la profesora Karollina Montero.\n\nEste formulario nos permite estar en contacto, fortalecer nuestras redes de comunicación educativas y profesionales.\nTambién deseo compartir con vos que tenemos un servicio de "Consultoría Educativa" donde ofrecemos servicios de Asesoría en Tesis, Proyectos, Talleres educativos, Conferencias, Concursos Directivos.\n\nPodes seguirnos en Facebook en @consultoriakarollinamontero.\n\nMuchas gracias por ser parte de mi camino.\n\nA disposición. Mgtr. Prof. Karollina Montero.\n\nContacto: 2614601533.\nacademico.kmontero@gmail.com </string>
+    <string name="comenzar">Presiona sobre el icono de la flecha para comenzar el cuestionario. Gracias.</string>
+</resources>
