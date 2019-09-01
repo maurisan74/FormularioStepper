@@ -12,20 +12,15 @@ import ernestoyaquello.com.verticalstepperform.Step
 class ComentariosSteps@JvmOverloads constructor(title: String, subtitle: String = "") :
     Step<String>(title, subtitle)  {
     private var textComent: TextInputEditText? = null
-    private var ErrorString: String? = null
 
     override fun createStepContentLayout(): View {
 
-        // We create this step view programmatically
         this.textComent = TextInputEditText(context)
-        //this.textComent!!.setHint(R.string.form_hint_ape)
-        this.textComent!!.focusable=View.FOCUSABLE_AUTO
         this.textComent!!.isSingleLine = false
         this.textComent!!.inputType= 12
         this.textComent!!.setTypeface(context.fuente())
         this.textComent!!.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 markAsCompletedOrUncompleted(true)
             }
@@ -36,9 +31,6 @@ class ComentariosSteps@JvmOverloads constructor(title: String, subtitle: String 
             formView.goToNextStep(true)
             false
         }
-
-
-
         return this.textComent as TextInputEditText
     }
     override fun restoreStepData(data: String?) {
@@ -49,7 +41,7 @@ class ComentariosSteps@JvmOverloads constructor(title: String, subtitle: String 
 
     override fun isStepDataValid(stepData: String?): IsDataValid {
 
-            return Step.IsDataValid(true)
+        return IsDataValid(true)
     }
 
     override fun getStepDataAsHumanReadableString(): String {
@@ -61,7 +53,13 @@ class ComentariosSteps@JvmOverloads constructor(title: String, subtitle: String 
     }
 
     override fun getStepData(): String {
-        return textComent!!.text.toString()
+        if (textComent!!.text.toString().length>20){
+             val struncate =textComent!!.text.toString().subSequence(0,20).toString() + "..."
+            return struncate
+        }else{
+
+            return textComent!!.text.toString()
+        }
     }
 
     override fun onStepMarkedAsCompleted(animated: Boolean) {

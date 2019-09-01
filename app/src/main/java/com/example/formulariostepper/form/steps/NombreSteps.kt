@@ -19,12 +19,9 @@ class NombreSteps @JvmOverloads constructor(title: String, subtitle: String = ""
         this.textNombre = TextInputEditText(context)
         this.textNombre!!.setHint(R.string.form_hint_nom)
         this.textNombre!!.isSingleLine = true
-        this.textNombre!!.focusable
         this.textNombre!!.setTypeface(context.fuente())
-        this.textNombre!!.focusable=View.FOCUSABLE_AUTO
         this.textNombre!!.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 markAsCompletedOrUncompleted(true)
             }
@@ -35,7 +32,6 @@ class NombreSteps @JvmOverloads constructor(title: String, subtitle: String = ""
             formView.goToNextStep(true)
             false
         }
-
         ErrorString =
             context.resources.getString(R.string.error_name_min_characters)
 
@@ -50,9 +46,9 @@ class NombreSteps @JvmOverloads constructor(title: String, subtitle: String = ""
     override fun isStepDataValid(stepData: String?): IsDataValid {
         if (stepData!!.length < MIN_CHARACTERS_ALARM_NAME) {
             val titleError = String.format(ErrorString!!, MIN_CHARACTERS_ALARM_NAME)
-            return Step.IsDataValid(false, titleError)
+            return IsDataValid(false, titleError)
         } else {
-            return Step.IsDataValid(true)
+            return IsDataValid(true)
         }
     }
 
@@ -85,7 +81,6 @@ class NombreSteps @JvmOverloads constructor(title: String, subtitle: String = ""
         //NADA
     }
     companion object {
-
         private val MIN_CHARACTERS_ALARM_NAME = 3
     }
 }

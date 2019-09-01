@@ -12,5 +12,12 @@ class EmailValidator {
     }
 }
 
+object nn{
+    var j: String=""
+    fun prueba(a:String){
+j=a
+    }
+}
 fun Context.fuente() =Typeface.createFromAsset(getAssets(),"roboto_regular.ttf")
 
+fun pruebas(a:Int, b:Int)= a*b

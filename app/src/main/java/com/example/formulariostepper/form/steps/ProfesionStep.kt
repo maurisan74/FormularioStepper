@@ -17,7 +17,6 @@ class ProfesionStep @JvmOverloads constructor(title: String, subtitle: String = 
 
     override fun createStepContentLayout(): View {
 
-        // We create this step view by inflating an XML layout
         val inflater = LayoutInflater.from(context)
         vProfeSteps = inflater.inflate(R.layout.profesion_datos, null, false)
         radioGroup = vProfeSteps!!.findViewById(R.id.radioGroup)
@@ -46,19 +45,19 @@ class ProfesionStep @JvmOverloads constructor(title: String, subtitle: String = 
     }
 
     override fun onStepOpened(animated: Boolean) {
-        // No need to do anything here
+        // NADA
     }
 
     override fun onStepClosed(animated: Boolean) {
-        // No need to do anything here
+        // NADA
     }
 
     override fun onStepMarkedAsCompleted(animated: Boolean) {
-        // No need to do anything here
+        // NADA
     }
 
     override fun onStepMarkedAsUncompleted(animated: Boolean) {
-        // No need to do anything here
+        // NADA
     }
 
     override fun getStepData(): RadioGroup? {

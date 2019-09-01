@@ -6,19 +6,18 @@ import android.text.TextWatcher
 import android.view.View
 import com.example.formulariostepper.EmailValidator
 import com.example.formulariostepper.R
+import com.example.formulariostepper.nn
+import com.example.formulariostepper.pruebas
 import com.google.android.material.textfield.TextInputEditText
 import ernestoyaquello.com.verticalstepperform.Step
 
 class CorreoStep @JvmOverloads constructor(title: String, subtitle: String = "") :
     Step<String>(title, subtitle)  {
     private var textCorreo: TextInputEditText? = null
-   //rivate var ErrorString: String? = null
 
     override fun createStepContentLayout(): View {
 
-        // We create this step view programmatically
         this.textCorreo = TextInputEditText(context)
-        this.textCorreo!!.focusable=View.FOCUSABLE
         this.textCorreo!!.setHint(R.string.form_hint_correo)
         this.textCorreo!!.inputType=TYPE_TEXT_VARIATION_EMAIL_ADDRESS
         this.textCorreo!!.isSingleLine = true
@@ -35,10 +34,6 @@ class CorreoStep @JvmOverloads constructor(title: String, subtitle: String = "")
             formView.goToNextStep(true)
             false
         }
-
-      //  ErrorString =
-      //      context.resources.getString(R.string.error_name_min_characters)
-
         return this.textCorreo as TextInputEditText
     }
     override fun restoreStepData(data: String?) {
@@ -48,11 +43,14 @@ class CorreoStep @JvmOverloads constructor(title: String, subtitle: String = "")
     }
 
     override fun isStepDataValid(stepData: String?): IsDataValid {
+        nn.prueba("")
+        nn.j="daff"
+        pruebas(1,4)
         if (!EmailValidator.isEmailValid(stepData.toString())) {
             val titleError = String.format("Email No Valido")
-            return Step.IsDataValid(false, titleError)
+            return IsDataValid(false, titleError)
         } else {
-            return Step.IsDataValid(true)
+            return IsDataValid(true)
         }
     }
 

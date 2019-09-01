@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.formulariostepper.form.steps.ComentariosSteps
 import com.example.formulariostepper.form.steps.CorreoStep
@@ -26,7 +27,6 @@ class NuevoFormulario : AppCompatActivity(), StepperFormListener,
         super.onCreate(savedInstanceState)
         setContentView(R.layout.formulario_nuevo)
 
-
         val stepTitles = resources.getStringArray(R.array.steps_titles)
         DNomStep = NombreSteps(stepTitles[0])
         DCorreoStep = CorreoStep(stepTitles[1])
@@ -40,17 +40,15 @@ class NuevoFormulario : AppCompatActivity(), StepperFormListener,
     override fun onClick(dialogInterface: DialogInterface, which: Int) {
         when (which) {
 
-            // "Discard" button of the Discard Alarm dialog
             -1 -> finish()
 
-            // "Cancel" button of the Discard Alarm dialog
             -2 -> verticalStepperForm!!.cancelFormCompletionOrCancellationAttempt()
         }
     }
     override fun onCompletedForm() {
-        val dataSavingThread = saveData()
+       val dataSavingThread = saveData()
 
-        //progressDialog = ProgressDialog(this)
+        progressDialog = ProgressDialog(this)
         progressDialog!!.setCancelable(true)
         progressDialog!!.show()
         progressDialog!!.setTitle(getString(R.string.form_sending_data_message))
@@ -58,7 +56,6 @@ class NuevoFormulario : AppCompatActivity(), StepperFormListener,
             try {
                 dataSavingThread.interrupt()
             } catch (e: RuntimeException) {
-                // No need to do anything here
             } finally {
                 verticalStepperForm!!.cancelFormCompletionOrCancellationAttempt()
             }
@@ -66,18 +63,15 @@ class NuevoFormulario : AppCompatActivity(), StepperFormListener,
     }
 
     override fun onCancelledForm() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+       //NADA
     }
-
-
-
 
     private fun saveData(): Thread {
 
         // Fake data saving effect
         val thread = Thread(Runnable {
             try {
-                Thread.sleep(1000)
+                Thread.sleep(1500)
                 val intent = intent
                 setResult(Activity.RESULT_OK, intent)
                 intent.putExtra("datosPersonales", DNomStep!!.getStepData())

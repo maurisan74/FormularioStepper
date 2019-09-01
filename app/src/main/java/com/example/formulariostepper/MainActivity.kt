@@ -16,15 +16,7 @@ class MainActivity : AppCompatActivity() {
         fab = findViewById(R.id.fab)
         fab!!.setOnClickListener{
             val intent = Intent(applicationContext, NuevoFormulario::class.java)
-            startActivityForResult(intent, NEW_ALARM_REQUEST_CODE)
+            startActivityForResult(intent, 1)
         }
-    }
-    companion object {
-
-        val NEW_ALARM_REQUEST_CODE = 1
-
-        private val DATA_RECEIVED = "data_received"
-        private val INFORMATION = "information"
-        private val DISCLAIMER = "disclaimer"
     }
 }
