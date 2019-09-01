@@ -34,6 +34,7 @@ class CorreoStep @JvmOverloads constructor(title: String, subtitle: String = "")
             formView.goToNextStep(true)
             false
         }
+
         return this.textCorreo as TextInputEditText
     }
     override fun restoreStepData(data: String?) {
