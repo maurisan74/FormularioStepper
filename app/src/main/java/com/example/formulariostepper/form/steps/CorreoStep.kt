@@ -34,7 +34,6 @@ class CorreoStep @JvmOverloads constructor(title: String, subtitle: String = "")
             formView.goToNextStep(true)
             false
         }
-
         return this.textCorreo as TextInputEditText
     }
     override fun restoreStepData(data: String?) {
@@ -44,9 +43,6 @@ class CorreoStep @JvmOverloads constructor(title: String, subtitle: String = "")
     }
 
     override fun isStepDataValid(stepData: String?): IsDataValid {
-        nn.prueba("")
-        nn.j="daff"
-        pruebas(1,4)
         if (!EmailValidator.isEmailValid(stepData.toString())) {
             val titleError = String.format("Email No Valido")
             return IsDataValid(false, titleError)
