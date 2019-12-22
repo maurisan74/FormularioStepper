@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         fab = findViewById(R.id.fab)
         fab!!.setOnClickListener{
             val intent = Intent(applicationContext, NuevoFormulario::class.java)
-            startActivityForResult(intent, 1)
+            startActivity(intent)
         }
     }
 }
